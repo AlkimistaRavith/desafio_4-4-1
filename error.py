@@ -9,8 +9,8 @@ class DimensionError(Exception):
     #punto2
     #En la misma clase anterior, sobrecargar el método __str__, de forma tal que si sólo se ha ingresado mensaje al crear la excepción, se retorna el método de la clase padre. En caso contrario, crear y retornar un mensaje de retorno utilizando los atributos mensaje y/o dimension y/o maximo.
     def __str__(self):
-        if self.dimension is None and self.maximo is None:
+        if self.dimension is None or self.maximo is None:
             return super().__str__()
-        else:
-            
-            return f"{self.mensaje} , {self.dimension} , {self.maximo}"
+        
+        return (f"{self.mensaje}: '{self.dimension}' no puede ser menor que 1 "
+                f"ni mayor que {self.maximo}.")

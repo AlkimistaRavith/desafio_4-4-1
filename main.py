@@ -32,5 +32,9 @@ class Foto():
             raise DimensionError(f"Valor ingresado está fuera de rango. Por favor ingresar un valor entre 1 y {self.MAX}",alto, self.MAX)
 
 
-fotito = Foto()
-fotito.ancho = 3000
+try:
+    foto = Foto(800, 600,"ruta.cl")
+    foto.ancho = 0  # Esto debería lanzar la excepción
+except DimensionError as e:
+    print("¡Error de dimensión!")
+    print(e)
